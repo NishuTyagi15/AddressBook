@@ -30,7 +30,7 @@ public class AddressBookMain {
             ab[i] = new AddressBook(); 
 
 	        while(true){
-	            System.out.print("How many Entries you want to create in " +i+ " Address Book");
+	            System.out.print("How many Entries you want to create in " +i+ " Address Book ");
 	            howManyEntries = S.nextInt();
 	            if (howManyEntries>0) {
 	                ab[i].initEntry(howManyEntries);
