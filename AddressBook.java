@@ -61,6 +61,7 @@ public class AddressBook{
     public int getEntry(){
         return c.length;
     }
+
     //Adds Entry to the Address Book
     public void add(String firstName, String lastName, String address, String city, 
                         String state, String zip, String phoneNumber, String email){
@@ -73,6 +74,8 @@ public class AddressBook{
         }
         else System.out.println("Error : Address Book is Already Full!");
     }
+
+    // Edit an Existing Entry from Address Book
     public void edit(String firstName, String lastName, String address, String city, String state, 
                         String zipCode, String phoneNumber, String email, int select){
         c[select].firstName = firstName;
@@ -83,5 +86,24 @@ public class AddressBook{
         c[select].zipCode = zipCode;
         c[select].phoneNumber = phoneNumber;
         c[select].email = email;
+    }
+    
+    // Removes an Existing Entry from the Address Book
+    public void delete(int deleteEntry){
+        if (entries>=0){
+            c[deleteEntry] = new Entries();
+            for (int j = 0; j<entries-deleteEntry; j++){
+                if (deleteEntry+1==entries) c[deleteEntry] = new Entries();
+                else{
+                    Entries temp = c[deleteEntry+j];
+                    c[deleteEntry+j] = c[deleteEntry+j+1];
+                    c[deleteEntry+j+1] = temp;
+                }
+            }
+            entries--;
+        }
+        else {
+                System.out.println("Error : The Address Book is Empty. Please Add First!");
+        }
     }
 }

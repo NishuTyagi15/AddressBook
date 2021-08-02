@@ -30,7 +30,7 @@ public class AddressBookMain {
             ab[i] = new AddressBook(); 
 
 	        while(true){
-	            System.out.print("How many Entries you want to create in " +i+ " Address Book");
+	            System.out.print("How many Entries you want to create in " +i+ " Address Book : ");
 	            howManyEntries = S.nextInt();
 	            if (howManyEntries>0) {
 	                ab[i].initEntry(howManyEntries);
@@ -55,8 +55,9 @@ public class AddressBookMain {
 	        }
 			System.out.println("Select an Option!");
 	        System.out.println("1. Add an Entry");
-	        System.out.println("2. Edit an Existing Entry");			
-	        System.out.println("3. Exit the Menu");
+	        System.out.println("2. Edit an Existing Entry");
+	        System.out.println("3. Delete an Existing Entry");						
+	        System.out.println("4. Exit the Menu");
 	        System.out.print("> ");
 	        select = S.nextInt();
 	        String firstName, lastName, address, city, state, zipCode, phoneNumber, email;
@@ -83,7 +84,7 @@ public class AddressBookMain {
 	                break;
 	            
 				case 2:
-				    System.out.print("Select the Entry you want to Edit?");
+				    System.out.print("Select the Entry you want to Edit? ");
 				    int selectEntry = S.nextInt();
 				    System.out.print("First name? ");
 				    firstName = S.next();
@@ -104,8 +105,13 @@ public class AddressBookMain {
 				    ab[bookSelected].edit(firstName, lastName, address, city, 
 					                        state, zipCode,phoneNumber, email, selectEntry);
 					break;
+                case 3:
+				    System.out.print("Select the Entry you want to Delete ");
+				    int deleteEntry = S.nextInt();
+	                ab[bookSelected].delete(deleteEntry);
+	                break;
 
-	            case 3:
+	            case 4:
 	                done = true;
 	                break;
 
