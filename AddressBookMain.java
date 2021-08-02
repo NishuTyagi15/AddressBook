@@ -55,7 +55,8 @@ public class AddressBookMain {
 	        }
 			System.out.println("Select an Option!");
 	        System.out.println("1. Add an Entry");
-	        System.out.println("2. Exit the Menu");
+	        System.out.println("2. Edit an Existing Entry");			
+	        System.out.println("3. Exit the Menu");
 	        System.out.print("> ");
 	        select = S.nextInt();
 	        String firstName, lastName, address, city, state, zipCode, phoneNumber, email;
@@ -78,13 +79,36 @@ public class AddressBookMain {
 	                System.out.print("E-mail? ");
 	                email = S.next();
 	                ab[bookSelected].add(firstName, lastName, address, city, 
-					                            state, zipCode,phoneNumber, email);
+					                        state, zipCode,phoneNumber, email);
 	                break;
-	                
+	            
+				case 2:
+				    System.out.print("Select the Entry you want to Edit?");
+				    int selectEntry = S.nextInt();
+				    System.out.print("First name? ");
+				    firstName = S.next();
+				    System.out.print("Last name? ");
+				    lastName = S.next();
+				    System.out.print("Complete Address? ");
+				    address = S.next();
+				    System.out.print("City? ");
+				    city = S.next();
+				    System.out.println("State? ");
+				    state = S.next();
+				    System.out.print("Zip Code? ");
+				    zipCode = S.next();
+				    System.out.print("Phone Number? ");
+				    phoneNumber = S.next();
+				    System.out.print("E-mail? ");
+				    email = S.next();
+				    ab[bookSelected].edit(firstName, lastName, address, city, 
+					                        state, zipCode,phoneNumber, email, selectEntry);
+					break;
 
-	            case 2:
+	            case 3:
 	                done = true;
 	                break;
+
 	            default:
 	                System.out.print("Kindly Select a Valid Menu Number!");
 
